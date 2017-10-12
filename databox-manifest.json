@@ -1,0 +1,45 @@
+{
+    "manifest-version": 1,
+    "name": "tlodge-tutorial-accelerometer-axes",
+    "version": "0.1.0",
+    "description": "accelerometer axes test",
+    "author": "tlodge",
+    "licence": "MIT",
+    "databox-type": "app",
+    "tags": [
+        "accelerometer",
+        " graph",
+        " axes"
+    ],
+    "homepage": "https://github.com/tlodge/databox.tutorial-accelerometer-axes",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tlodge/databox.tutorial-accelerometer-axes.git"
+    },
+    "packages": [
+        {
+            "id": "c64345f2.c33718",
+            "name": "new package",
+            "purpose": "to test more complex ui functionality",
+            "required": false,
+            "datastores": [
+                "f89227aa.adbb98"
+            ],
+            "benefits": "shows uibuilder features"
+        }
+    ],
+    "allowed-combinations": [],
+    "datasources": [
+        {
+            "type": "accelerometer",
+            "required": true,
+            "name": "sensingkit",
+            "clientid": "f89227aa.adbb98",
+            "granularities": []
+        }
+    ],
+    "network-permissions": [],
+    "resource-requirements": {},
+    "volumes": [],
+    "export-whitelist": []
+}
