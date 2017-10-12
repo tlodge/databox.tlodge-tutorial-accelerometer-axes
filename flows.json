@@ -1,0 +1,473 @@
+[
+    {
+        "id": "c64345f2.c33718",
+        "label": "new package",
+        "type": "tab"
+    },
+    {
+        "id": "f89227aa.adbb98",
+        "type": "sensingkit",
+        "z": "c64345f2.c33718",
+        "name": "",
+        "subtype": "accelerometer",
+        "x": 274,
+        "y": 551,
+        "wires": [
+            [
+                "992eff81.a3dbe"
+            ]
+        ]
+    },
+    {
+        "id": "992eff81.a3dbe",
+        "type": "uibuilder",
+        "z": "c64345f2.c33718",
+        "name": "",
+        "templates": {
+            "e294cd68.31817": {
+                "id": "e294cd68.31817",
+                "label": "xaxis",
+                "type": "circle",
+                "cx": 137,
+                "cy": 865,
+                "r": 50,
+                "style": {
+                    "fill": "#002156",
+                    "stroke": "black",
+                    "stroke-width": 1,
+                    "opacity": 1
+                },
+                "enterFn": {
+                    "datakey": {
+                        "key": "ts",
+                        "path": [
+                            "payload"
+                        ]
+                    },
+                    "enter": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "return true"
+                    },
+                    "key": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "const lookup=(data)=>[\"payload\"].reduce((acc,item)=>{return acc[item]},data)[\"ts\"]; return lookup(data)"
+                    }
+                },
+                "exitFn": {
+                    "params": [
+                        "data",
+                        "index",
+                        "node"
+                    ],
+                    "body": "return (Date.now() - node.ts) > 500 "
+                }
+            },
+            "635215de.46388c": {
+                "id": "635215de.46388c",
+                "label": "yaxis",
+                "type": "circle",
+                "cx": 145.40884363064345,
+                "cy": "0",
+                "r": 50,
+                "style": {
+                    "fill": "#D60000",
+                    "stroke": "black",
+                    "stroke-width": 1,
+                    "opacity": 1
+                },
+                "enterFn": {
+                    "datakey": {
+                        "key": "ts",
+                        "path": [
+                            "payload"
+                        ]
+                    },
+                    "enter": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "return true"
+                    },
+                    "key": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "const lookup=(data)=>[\"payload\"].reduce((acc,item)=>{return acc[item]},data)[\"ts\"]; return lookup(data)"
+                    }
+                },
+                "exitFn": {
+                    "params": [
+                        "data",
+                        "index",
+                        "node"
+                    ],
+                    "body": "return (Date.now() - node.ts) > 500 "
+                }
+            }
+        },
+        "mappings": [
+            {
+                "mappingId": "8d79099f.79ec48",
+                "ttype": "attribute",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "ts",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "time"
+                },
+                "to": {
+                    "path": [
+                        "e294cd68.31817"
+                    ],
+                    "type": "circle",
+                    "property": "cx"
+                }
+            },
+            {
+                "mappingId": "85f696bd.e2d718",
+                "ttype": "attribute",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "x",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "number"
+                },
+                "to": {
+                    "path": [
+                        "e294cd68.31817"
+                    ],
+                    "type": "circle",
+                    "property": "cy"
+                }
+            },
+            {
+                "mappingId": "2222c86b.9298a8",
+                "ttype": "attribute",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "x",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "number"
+                },
+                "to": {
+                    "path": [
+                        "e294cd68.31817"
+                    ],
+                    "type": "circle",
+                    "property": "r"
+                }
+            },
+            {
+                "mappingId": "47cd7686.c2b3e8",
+                "ttype": "style",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "x",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "number"
+                },
+                "to": {
+                    "path": [
+                        "e294cd68.31817"
+                    ],
+                    "type": "circle",
+                    "property": "opacity"
+                }
+            },
+            {
+                "mappingId": "b95a7e16.f9dd1",
+                "ttype": "attribute",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "ts",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "time"
+                },
+                "to": {
+                    "path": [
+                        "635215de.46388c"
+                    ],
+                    "type": "circle",
+                    "property": "cx"
+                }
+            },
+            {
+                "mappingId": "7866128b.08c93c",
+                "ttype": "attribute",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "y",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "number"
+                },
+                "to": {
+                    "path": [
+                        "635215de.46388c"
+                    ],
+                    "type": "circle",
+                    "property": "cy"
+                }
+            },
+            {
+                "mappingId": "923a361.eab50c8",
+                "ttype": "attribute",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "y",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "number"
+                },
+                "to": {
+                    "path": [
+                        "635215de.46388c"
+                    ],
+                    "type": "circle",
+                    "property": "r"
+                }
+            },
+            {
+                "mappingId": "887b3a16.fb82a8",
+                "ttype": "style",
+                "from": {
+                    "sourceId": "f89227aa.adbb98",
+                    "key": "y",
+                    "path": [
+                        "payload"
+                    ],
+                    "type": "number"
+                },
+                "to": {
+                    "path": [
+                        "635215de.46388c"
+                    ],
+                    "type": "circle",
+                    "property": "opacity"
+                }
+            }
+        ],
+        "transformers": {
+            "8d79099f.79ec48": "return (i*10) % w",
+            "85f696bd.e2d718": "return Math.round( (1-x/38) * h)",
+            "2222c86b.9298a8": "return  Math.round(50 * x/38)",
+            "47cd7686.c2b3e8": "return x/38 * 1.0",
+            "b95a7e16.f9dd1": "return (i *10)%w",
+            "7866128b.08c93c": "return Math.round( y/38 * h)",
+            "923a361.eab50c8": "return  Math.round(50 * y/38)",
+            "887b3a16.fb82a8": "return y/38 * 1.0"
+        },
+        "canvasdimensions": {
+            "w": 1471.0047846889954,
+            "h": 854
+        },
+        "tree": {
+            "8d79099f.79ec48": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "85f696bd.e2d718": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "2222c86b.9298a8": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "47cd7686.c2b3e8": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "b95a7e16.f9dd1": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "7866128b.08c93c": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "923a361.eab50c8": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            },
+            "887b3a16.fb82a8": {
+                "node": {
+                    "nid": "992eff81.a3dbe",
+                    "type": "uibuilder",
+                    "category": "processors",
+                    "color": "#002255",
+                    "unicode": "f03e"
+                },
+                "parents": [
+                    {
+                        "node": {
+                            "nid": "f89227aa.adbb98",
+                            "type": "sensingkit",
+                            "category": "datastores",
+                            "color": "#ffcc00",
+                            "unicode": "f17b"
+                        },
+                        "parents": []
+                    }
+                ]
+            }
+        },
+        "x": 403,
+        "y": 551,
+        "wires": [
+            [
+                "a01ae522.bd4048"
+            ]
+        ]
+    },
+    {
+        "id": "a01ae522.bd4048",
+        "type": "app",
+        "z": "c64345f2.c33718",
+        "name": "",
+        "appId": "webapp",
+        "layout": null,
+        "x": 527,
+        "y": 551,
+        "wires": []
+    }
+]
