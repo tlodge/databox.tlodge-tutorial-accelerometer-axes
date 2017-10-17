@@ -11,10 +11,10 @@
         " graph",
         " axes"
     ],
-    "homepage": "https://github.com/tlodge/databox.tutorial-accelerometer-axes",
+    "homepage": "https://github.com/tlodge/databox.tlodge-tutorial-accelerometer-axes",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tlodge/databox.tutorial-accelerometer-axes.git"
+        "url": "git+https://github.com/tlodge/databox.tlodge-tutorial-accelerometer-axes.git"
     },
     "packages": [
         {
