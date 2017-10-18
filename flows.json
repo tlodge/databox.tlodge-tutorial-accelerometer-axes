@@ -23,7 +23,96 @@
         "type": "uibuilder",
         "z": "c64345f2.c33718",
         "name": "",
-        "templatesById": {},
+        "templatesById": {
+            "e294cd68.31817": {
+                "id": "e294cd68.31817",
+                "label": "xaxis",
+                "type": "circle",
+                "cx": 137,
+                "cy": 865,
+                "r": 50,
+                "style": {
+                    "fill": "#002156",
+                    "stroke": "black",
+                    "stroke-width": 1,
+                    "opacity": 1
+                },
+                "enterFn": {
+                    "datakey": {
+                        "key": "ts",
+                        "path": [
+                            "payload"
+                        ]
+                    },
+                    "enter": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "return true"
+                    },
+                    "key": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "const lookup=(data)=>[\"payload\"].reduce((acc,item)=>{return acc[item]},data)[\"ts\"]; return lookup(data)"
+                    }
+                },
+                "exitFn": {
+                    "params": [
+                        "data",
+                        "index",
+                        "node"
+                    ],
+                    "body": "return (Date.now() - node.ts) > 500 "
+                }
+            },
+            "635215de.46388c": {
+                "id": "635215de.46388c",
+                "label": "yaxis",
+                "type": "circle",
+                "cx": 145.40884363064345,
+                "cy": "0",
+                "r": 50,
+                "style": {
+                    "fill": "#D60000",
+                    "stroke": "black",
+                    "stroke-width": 1,
+                    "opacity": 1
+                },
+                "enterFn": {
+                    "datakey": {
+                        "key": "ts",
+                        "path": [
+                            "payload"
+                        ]
+                    },
+                    "enter": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "return true"
+                    },
+                    "key": {
+                        "params": [
+                            "data",
+                            "index"
+                        ],
+                        "body": "const lookup=(data)=>[\"payload\"].reduce((acc,item)=>{return acc[item]},data)[\"ts\"]; return lookup(data)"
+                    }
+                },
+                "exitFn": {
+                    "params": [
+                        "data",
+                        "index",
+                        "node"
+                    ],
+                    "body": "return (Date.now() - node.ts) > 500 "
+                }
+            }
+        },
         "templates": [
             "635215de.46388c",
             "e294cd68.31817"
