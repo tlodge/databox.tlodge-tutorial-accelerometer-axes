@@ -10,8 +10,8 @@
         "z": "c64345f2.c33718",
         "name": "",
         "subtype": "accelerometer",
-        "x": 274,
-        "y": 551,
+        "x": 204,
+        "y": 345,
         "wires": [
             [
                 "992eff81.a3dbe"
@@ -72,8 +72,8 @@
                 "id": "635215de.46388c",
                 "label": "yaxis",
                 "type": "circle",
-                "cx": 145.40884363064345,
-                "cy": "0",
+                "cx": 155.93945720250522,
+                "cy": 50.025052192066795,
                 "r": 50,
                 "style": {
                     "fill": "#D60000",
@@ -273,13 +273,13 @@
         ],
         "transformers": {
             "8d79099f.79ec48": "return (i*10) % w",
-            "85f696bd.e2d718": "return Math.round( (1-x/38) * h)",
-            "2222c86b.9298a8": "return  Math.round(50 * x/38)",
-            "47cd7686.c2b3e8": "return x/38 * 1.0",
+            "85f696bd.e2d718": "const value = 38 + x;\nreturn Math.round( (1-value/76) * h)",
+            "2222c86b.9298a8": "const value = 38 + x;\nreturn  Math.round(50 * value/76)",
+            "47cd7686.c2b3e8": "const value = 38 + x;\nreturn value/76 * 1.0",
             "b95a7e16.f9dd1": "return (i *10)%w",
-            "7866128b.08c93c": "return Math.round( y/38 * h)",
-            "923a361.eab50c8": "return  Math.round(50 * y/38)",
-            "887b3a16.fb82a8": "return y/38 * 1.0"
+            "7866128b.08c93c": "const value = 38 + y;\nreturn Math.round( value/76 * h)",
+            "923a361.eab50c8": "const value = 38 + y;\nreturn  Math.round(50 * value/76)",
+            "887b3a16.fb82a8": "const value = 38 + y;\nreturn value/38 * 1.0"
         },
         "canvasdimensions": {
             "w": 1471.0047846889954,
@@ -455,8 +455,8 @@
                 ]
             }
         },
-        "x": 397,
-        "y": 558,
+        "x": 426,
+        "y": 350,
         "wires": [
             [
                 "a01ae522.bd4048"
